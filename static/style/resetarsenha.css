@@ -1,0 +1,11 @@
+#erro_div{
+    background-color: aliceblue;
+    text-align: center;
+    padding: 5px;
+    height: 200px;
+    width: 400px;
+    position: absolute;
+    left: 80vh;
+    top: 30vh;
+    border-radius: 20px;
+}

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #3473E9;
+    --secondary-color: #58B3FF;
+    --substitute-color: #5DDFFF;
+    --highlight-color: #5728A8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+#erro_div{
+    background-color: aliceblue;
+    text-align: center;
+    padding: 5px;
+    height: 200px;
+    width: 400px;
+    position: absolute;
+    left: 80vh;
+    top: 30vh;
+    border-radius: 20px;
+}
+
+.part-1 .card-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px;
+    padding: 20px 20px;
+    width: 550px;
+}
+
+.part-1 .card-cadastro .group-titulo-logo {
+    display: flex;
+}
+
+.part-1 .card-cadastro .group-titulo-logo .titulo-cadastro {
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.part-1 .card-cadastro form {
+    display: flex;
+    flex-direction: column;
+}
+
+.part-1 .card-cadastro form .step {
+    flex-direction: column;
+}
+
+.part-1 .card-cadastro form .step .group-label-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.part-1 .card-cadastro form .step .textbox {
+    width: 300px;
+    padding: 5px 10px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 15px;
+}
+
+.part-1 .card-cadastro form .textbox:focus {
+    outline: none;
+}

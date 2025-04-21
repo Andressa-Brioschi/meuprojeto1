@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resetar Senha</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/resetarsenha.css')}}">
+</head>
+<body>
+    {% if alert_value %}
+        <div id="erro_div">
+            <h3>Erro</h3>
+            <hr>
+            <p>{{ txt_alert }}</p>
+            <button id="btn_dispose">Ok</button>        
+        </div>
+    {%endif%}
+
+    <form method="post" action="./reset_password">
+        <label for="senha">CPF</label>
+        <input id= "cpf"  type="text"  pattern="\d{11}" maxlength="11" placeholder="digite seu cpf (apenas números)" name="cpf" required>
+        <br>
+    
+        <label for="senha">Senha Antiga</label>
+        <input type="password" id="senha_old"  name="senha_antiga" required>
+        <br>
+    
+        <label for="senha">Nova Senha</label>
+        <input type="password" id="senha_new"  name="senha_nova" required>
+        <br>
+    
+        <label for="senha">Confirmar Senha</label>
+        <input type="password" id="senha" name="senha_confirmada" required>
+        <br>
+
+        <button type="submit" id="btn_resetar">Resetar</button>
+    </form>
+
+    <script src="{{ url_for('static', filename = 'script/resetarsenha.js')}}"></script>
+</body>
+</html>

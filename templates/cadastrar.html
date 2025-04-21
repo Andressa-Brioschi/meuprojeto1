@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/cadastrar.css')}}">
+</head>
+<body>
+
+    {% if alert_value %}
+        <div id="erro_div">
+
+            <h3>Erro</h3>
+            <hr>
+            <p> {{txt_alert}}</p>
+            <button id="btn_dispose">Ok</button>
+        
+        </div>
+    {%endif%}
+
+    <div class="container">
+        <section class="part-1">
+            <div class="card-cadastro">
+                <div class="group-titulo-logo">
+                    <h2 class="titulo-cadastro">MedDay</h2>
+                    <img src="" alt="" class="img-logo">
+                </div>
+                <form method="post" action="./add"  onsubmit="return validarSenhas()">
+
+                    <div class="step active">
+                        <div class="group-label-input">
+                            <label for="nome">Nome</label>
+                            <input id="nome" type="text"  required placeholder="Digite seu nome e sobrenome" name="nome" class="textbox">
+                        </div>
+
+                        <div class="group-label-input">
+                            <label for="cpf">CPF</label>
+                            <input id= "cpf"  type="text"  pattern="\d{11}" maxlength="11" placeholder="Digite seu CPF (apenas números)" name="cpf" class="textbox" required>
+                        </div>
+
+                        <div class="group-label-input">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" placeholder="Digite seu e-mail" name="email" class="textbox" required>
+                        </div>
+
+                        <div class="group-label-input">
+                            <label for="data">Data de Nascimento</label>
+                            <input type="date" id="datanasc"  name="datanasc" class="textbox" required>
+                        </div>
+
+                        <div class="group-label-input">
+                            <label for="tel">Telefone</label>
+                            <input type="text" id="tel" placeholder="Digite o seu número de telefone" pattern="\d{11}" maxlength="11" name="telefone" class="textbox" required>
+                        </div>
+
+                        <button type="button" onclick="nextStep()">Próximo</button>
+                    </div>
+
+                    <div class="step">
+                        <div class="group-label-input">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" name="cep" pattern="\d{8}" maxlength="8" required placeholder="Digite o seu CEP" class="textbox">
+                        </div>
+
+                        <div class="group-label-input">
+                            <label for="rua">Rua</label>
+                            <input type="text" id="rua" placeholder="Digite a sua rua" name="rua" class="textbox">
+                        </div>
+
+                        <div class="group-label-input">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" placeholder="Digite o seu bairro" name="bairro" class="textbox">
+                        </div>
+
+                        <div class="group-label-input">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" placeholder="Digite a sua cidade" name="cidade" class="textbox">
+                        </div>
+                        
+                        <div class="group-label-input">
+                            <label for="UF">UF</label>
+                            <select id="UF" name="UF" class="textbox">
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+
+                        <button type="button" onclick="prevStep()">Voltar</button>
+                        <button type="button" onclick="nextStep()">Próximo</button>
+                    </div>
+
+                    <div class="step">
+                        <div class="group-label-input">
+                            <label for="senha">Crie uma senha</label>
+                            <input type="password" id="senha"  name="senha" class="textbox" required>
+                        </div>
+
+                        <div class="group-label-input">
+                            <label for="validSenha">Confirme a senha</label>
+                            <input type="password" id="validSenha"  name="validsenha" class="textbox" required>
+                        </div>
+
+                        <span id="mensagemErro" style="color: red;"></span><br>
+
+                        <button type="button" onclick="prevStep()">Voltar</button>
+
+                        <button type="submit" id="btn_cadastrar">CADASTRAR</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="part-2">
+            <img src="" alt="" class="img-back-cadastro">
+        </section>
+    </div>
+
+<script src="{{ url_for('static', filename = 'script/cadastro.js')}}"></script>
+</body>
+</html>
