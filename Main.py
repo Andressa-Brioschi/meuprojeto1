@@ -97,13 +97,17 @@ def autenticar():
     user = db.session.query(Cadastro_paciente).filter_by(cpf = cpf, senha = senha ).first()
 
     if user:
+        session['nomeDaSessao'] = request.form['txtcpf']
         return render_template("./home.html")
     else:
         return render_template("./login.html")
 
         
     
-
+@app.route ("/sair")
+def sair():
+    session['nomeDaSessao'] = None
+    return redirect ("/login")
 
 
     
